@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Image } from "@/lib/types";
-import { PLACEHOLDER_IMAGE } from "@/config";
+import { PLACEHOLDER_IMG } from "@/config";
 
 type Props = {
   imageData: Image;
@@ -26,7 +26,7 @@ const ImageCard: React.FC<Props> = ({ imageData }) => {
   const activeImage = useSelector((state: RootState) => state.image.active);
 
   function handleError() {
-    setImage(PLACEHOLDER_IMAGE);
+    setImage(PLACEHOLDER_IMG);
   }
 
   const handleClick = () => {

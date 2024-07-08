@@ -12,7 +12,7 @@ import {
   useTheme,
 } from "@mui/material";
 import Loading from "@/components/Loading";
-import { PLACEHOLDER_IMAGE } from "@/config";
+import { PLACEHOLDER_IMG } from "@/config";
 
 type Props = {
   params: { id: string; item: string };
@@ -38,7 +38,7 @@ const Page: React.FC<Props> = ({ params }) => {
   }, [data]);
 
   function handleError() {
-    setImage(PLACEHOLDER_IMAGE);
+    setImage(PLACEHOLDER_IMG);
   }
 
   if (isError) {
