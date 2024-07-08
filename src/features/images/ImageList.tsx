@@ -2,7 +2,8 @@
 import { useFetchAllQuery } from "@/lib/store/images/imagesApiSlice";
 import { useState } from "react";
 import Image from "next/image";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Container } from "@mui/material";
+import ImageCard from "./ImageCard";
 
 const ImageList = () => {
   // Using a query hook automatically fetches data and returns query values
@@ -28,18 +29,15 @@ const ImageList = () => {
     console.log(data, "data from API");
 
     return (
-      <div>
-        <Box>
-          <Grid container>
-            {data.map((img) => (
-              <Grid item key={img.index}>
-                {img.title}
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-        <p> DOne</p>
-      </div>
+      <Container>
+        <Grid container columnSpacing={3} rowSpacing={6}>
+          {data.map((img) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} xl={2.4} key={img.id}>
+              <ImageCard imageData={img} />
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
     );
   }
 
