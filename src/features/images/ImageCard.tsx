@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
+
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/lib/store/store";
+import { setActive } from "@/lib/store/images/imageSlice";
 import {
   Card,
   CardActionArea,
@@ -8,6 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Image } from "@/lib/types";
+import imageSlice from "./../../lib/store/images/imageSlice";
 
 type Props = {
   imageData: Image;
@@ -16,13 +21,24 @@ type Props = {
 const ImageCard: React.FC<Props> = ({ imageData }) => {
   const { image: img, title, description, id, index } = imageData;
   const [image, setImage] = useState(img);
+
+  const dispatch = useDispatch();
+  const activeImage = useSelector((state: RootState) => state.image.active);
+  console.log("ACTIVE IMAGE IS :", activeImage);
+
   function handleError() {
     setImage("https://placehold.co/200");
   }
+
+  const handleClick = () => {
+    dispatch(setActive(index));
+  };
+
   return (
     <CardActionArea
       component={Link}
       href={index + "/" + id}
+      onClick={handleClick}
       sx={{
         maxWidth: 300,
         borderRadius: 4,
@@ -34,7 +50,11 @@ const ImageCard: React.FC<Props> = ({ imageData }) => {
         },
       }}
     >
-      <Card>
+      <Card
+        sx={{
+          border: activeImage === index ? "2px solid red" : "none",
+        }}
+      >
         <CardMedia
           component="img"
           image={image}

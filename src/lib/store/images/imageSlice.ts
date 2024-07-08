@@ -2,21 +2,21 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface ImageState {
-    activeImage: string|null
+    active: number|null
 }
 
 const initialState: ImageState = {
-    activeImage: null
+    active: null
 }
 
 export const imageSlice = createSlice({
-    name: "activeImage",
+    name: "image",
     initialState,
     reducers: {
         
 
-        setActive:(state, action:PayloadAction<string>)=>{
-            state.activeImage= action.payload
+        setActive:(state, action:PayloadAction<number>)=>{
+            state.active= action.payload
         }
     }
 
