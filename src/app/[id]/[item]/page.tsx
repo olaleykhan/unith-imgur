@@ -29,7 +29,7 @@ const Page: React.FC<Props> = ({ params }) => {
     }),
   });
 
-  const [image, setImage] = useState(data?.image || PLACEHOLDER_IMAGE);
+  const [image, setImage] = useState(data?.image);
 
   useEffect(() => {
     if (data) {
