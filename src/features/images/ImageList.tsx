@@ -21,8 +21,6 @@ const ImageList = () => {
   }
 
   if (isSuccess) {
-    console.log(data, "data from API");
-
     return (
       <Container>
         <Grid

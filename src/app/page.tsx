@@ -8,10 +8,10 @@ export default function Page() {
     <main>
       <Box
         sx={{
-          pb: 4,
+          pb: 2,
         }}
       >
-        <Header>SImple Data Set</Header>
+        <Header>Simple Data Set</Header>
       </Box>
       <ImageList />
     </main>

@@ -23,7 +23,6 @@ const ImageCard: React.FC<Props> = ({ imageData }) => {
 
   const dispatch = useDispatch();
   const activeImage = useSelector((state: RootState) => state.image.active);
-  console.log("ACTIVE IMAGE IS :", activeImage);
 
   function handleError() {
     setImage("https://placehold.co/200");
