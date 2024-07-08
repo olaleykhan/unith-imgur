@@ -7,12 +7,7 @@ type Props = {
 const Header: FC<Props> = ({ children }) => {
   return (
     <Box p={4} component="header">
-      <Typography
-        variant="h4"
-        fontSize={{}}
-        fontWeight="bold"
-        textAlign="center"
-      >
+      <Typography variant="h2" textAlign="center">
         {children}
       </Typography>
     </Box>
