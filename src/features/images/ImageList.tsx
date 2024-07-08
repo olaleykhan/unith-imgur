@@ -1,9 +1,8 @@
 "use client";
 import { useFetchAllQuery } from "@/lib/store/images/imagesApiSlice";
-import { useState } from "react";
-import Image from "next/image";
-import { Box, Grid, Container } from "@mui/material";
+import { Grid, Container } from "@mui/material";
 import ImageCard from "./ImageCard";
+import Loading from "@/components/Loading";
 
 const ImageList = () => {
   // Using a query hook automatically fetches data and returns query values
@@ -12,17 +11,13 @@ const ImageList = () => {
   if (isError) {
     return (
       <div>
-        <h1>There was an error!!! Peace</h1>
+        <h1>There was an error!!!</h1>
       </div>
     );
   }
 
   if (isLoading) {
-    return (
-      <div>
-        <h1>Loading...</h1>
-      </div>
-    );
+    return <Loading />;
   }
 
   if (isSuccess) {

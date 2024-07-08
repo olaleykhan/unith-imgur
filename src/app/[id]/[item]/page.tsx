@@ -2,18 +2,16 @@
 import { useState } from "react";
 import React from "react";
 import { useFetchAllQuery } from "@/lib/store/images/imagesApiSlice";
-// import { useTheme } from "@emotion/react";
 import {
   Card,
   CardMedia,
   CardContent,
   Typography,
-  Container,
   Grid,
-  CircularProgress,
   Box,
   useTheme,
 } from "@mui/material";
+import Loading from "@/components/Loading";
 
 type Props = {
   params: { id: string; item: string };
@@ -48,18 +46,7 @@ const Page: React.FC<Props> = ({ params }) => {
   }
 
   if (isLoading) {
-    return (
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
-        <CircularProgress />
-      </Box>
-    );
+    return <Loading />;
   }
   if (isSuccess && !data) {
     return <> this image does not exist in store</>;
@@ -74,7 +61,6 @@ const Page: React.FC<Props> = ({ params }) => {
               component="img"
               image={data?.image}
               alt={data?.title}
-              // loading="lazy"
               onError={({ currentTarget }) => {
                 currentTarget.onerror = null;
                 currentTarget.src = "https://placehold.co/200";
