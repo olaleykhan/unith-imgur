@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { ImageResponse, Image } from "@/lib/types";
 import { transformAndSortImage } from './utils';
+import { UNITH_LOGO } from "@/config";
 
 
 
@@ -15,7 +16,7 @@ export const imagesApiSlice = createApi({
   endpoints: (build) => ({
     fetchAll: build.query<Image[], undefined>({
       query: () => `/images`,
-      transformResponse: (response: ImagesApiResponse) => transformAndSortImage(response, 'https://placehold.co/200'),
+      transformResponse: (response: ImagesApiResponse) => transformAndSortImage(response, UNITH_LOGO),
       providesTags: (result, error, id) => [{ type: "Images", id }],
     }),
   }),

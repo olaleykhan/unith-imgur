@@ -12,6 +12,7 @@ import {
   useTheme,
 } from "@mui/material";
 import Loading from "@/components/Loading";
+import { PLACEHOLDER_IMAGE } from "@/config";
 
 type Props = {
   params: { id: string; item: string };
@@ -19,14 +20,20 @@ type Props = {
 
 const Page: React.FC<Props> = ({ params }) => {
   const theme = useTheme();
-  const { id } = params;
 
+  const { id } = params;
   const { data, isLoading, isError, isSuccess } = useFetchAllQuery(undefined, {
     selectFromResult: ({ data, ...rest }) => ({
       data: data?.find((image) => image.index === Number(id)),
       ...rest,
     }),
   });
+
+  const [image, setImage] = useState(data?.image);
+
+  function handleError() {
+    setImage(PLACEHOLDER_IMAGE);
+  }
 
   if (isError) {
     return (
@@ -59,12 +66,9 @@ const Page: React.FC<Props> = ({ params }) => {
           <Card sx={{ boxShadow: 8 }}>
             <CardMedia
               component="img"
-              image={data?.image}
+              image={image}
               alt={data?.title}
-              onError={({ currentTarget }) => {
-                currentTarget.onerror = null;
-                currentTarget.src = "https://placehold.co/200";
-              }}
+              onError={handleError}
               sx={{
                 height: 300,
                 objectFit: "cover",

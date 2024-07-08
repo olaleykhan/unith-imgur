@@ -6,24 +6,24 @@ export const theme: Theme = createTheme({
   palette: PaletteOptions,
   typography: {
     fontFamily: 'SF-Pro-Display',
+    body2: {
+      fontSize: '0.6rem',
+  
+      '@media only screen and (min-width: 900px)': {
+        fontSize: '0.8rem',
+      },
+      '@media only screen and (min-width: 1200px)': {
+        fontSize: '1rem',
+      },
+      color: '#7E828B',
+    },
     body1: {
       fontSize: '0.8rem',
-  
       '@media only screen and (min-width: 900px)': {
         fontSize: '1rem',
       },
       '@media only screen and (min-width: 1200px)': {
         fontSize: '1.2rem',
-      },
-      color: '#7E828B',
-    },
-    body2: {
-      fontSize: '1rem',
-      '@media only screen and (min-width: 900px)': {
-        fontSize: '1.2rem',
-      },
-      '@media only screen and (min-width: 1200px)': {
-        fontSize: '1.4rem',
       },
       color: '#000',
     },
@@ -51,6 +51,20 @@ export const theme: Theme = createTheme({
       },
       '@media only screen and (min-width: 1200px)': {
         fontSize: '3rem',
+      },
+    },
+    h4: {
+      fontSize: '1.2rem',
+      lineHeight: '1.2rem',
+      fontWeight: 'bolder',
+      '@media only screen and (min-width: 1600px)': {
+        fontSize: '2.5rem',
+      },
+      '@media only screen and (min-width: 600px)': {
+        fontSize: '1.6rem',
+      },
+      '@media only screen and (min-width: 1200px)': {
+        fontSize: '2rem',
       },
     },
   },

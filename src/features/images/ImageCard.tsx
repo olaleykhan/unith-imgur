@@ -12,6 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Image } from "@/lib/types";
+import { PLACEHOLDER_IMAGE } from "@/config";
 
 type Props = {
   imageData: Image;
@@ -25,7 +26,7 @@ const ImageCard: React.FC<Props> = ({ imageData }) => {
   const activeImage = useSelector((state: RootState) => state.image.active);
 
   function handleError() {
-    setImage("https://placehold.co/200");
+    setImage(PLACEHOLDER_IMAGE);
   }
 
   const handleClick = () => {
@@ -59,15 +60,15 @@ const ImageCard: React.FC<Props> = ({ imageData }) => {
           alt={title}
           onError={handleError}
           sx={{
-            height: 200,
+            height: 150,
             objectFit: "cover",
           }}
         />
         <CardContent>
-          <Typography gutterBottom variant="body2" component="div">
+          <Typography gutterBottom variant="body1" component="div">
             {title}
           </Typography>
-          <Typography variant="body1" color="text.secondary">
+          <Typography variant="body2" color="text.secondary">
             {description}
           </Typography>
         </CardContent>
