@@ -12,7 +12,6 @@ import {
   Typography,
 } from "@mui/material";
 import { Image } from "@/lib/types";
-import imageSlice from "./../../lib/store/images/imageSlice";
 
 type Props = {
   imageData: Image;
