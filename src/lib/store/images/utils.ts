@@ -1,19 +1,5 @@
 import { Image,ImageResponse } from "@/lib/types";
-function transformObjectToArray<T>(input: Record<string, T>): ({ id: string}&T)[] {
-    return Object.keys(input).map(key => ({
-        id: key,
-        ...input[key]
-    }));
-}
-
-
-
-function sortByIndex<T extends { index: number }>(arr: T[]): T[] {
-    return arr.sort((a, b) => a.index - b.index);
-}
-
-
-
+import { transformObjectToArray, sortByIndex } from "@/lib/utils/transform";
 
 
 function replaceEmptyImageUrls(obj: Image, placeholder: string): Image {
@@ -22,10 +8,6 @@ function replaceEmptyImageUrls(obj: Image, placeholder: string): Image {
         image: obj.image.trim() === '' ? placeholder : obj.image
     };
 }
-
-
-
-
 
 export function transformAndSortImage(
     data: Record<string,ImageResponse>, 
