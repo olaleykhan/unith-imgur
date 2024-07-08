@@ -46,10 +46,10 @@ const ImageCard: React.FC<Props> = ({ imageData }) => {
           }}
         />
         <CardContent>
-          <Typography gutterBottom variant="subtitle1" component="div">
+          <Typography gutterBottom variant="body2" component="div">
             {title}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body1" color="text.secondary">
             {description}
           </Typography>
         </CardContent>

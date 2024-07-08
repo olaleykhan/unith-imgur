@@ -30,9 +30,23 @@ const ImageList = () => {
 
     return (
       <Container>
-        <Grid container columnSpacing={3} rowSpacing={6}>
+        <Grid
+          container
+          justifyContent="center"
+          rowSpacing={6}
+          columnSpacing={3}
+        >
           {data.map((img) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} xl={2.4} key={img.id}>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              lg={2.4}
+              key={img.id}
+              container
+              justifyContent="center"
+            >
               <ImageCard imageData={img} />
             </Grid>
           ))}
