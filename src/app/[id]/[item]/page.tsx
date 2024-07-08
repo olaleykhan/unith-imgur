@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 import { useFetchAllQuery } from "@/lib/store/images/imagesApiSlice";
 import {
@@ -29,7 +29,13 @@ const Page: React.FC<Props> = ({ params }) => {
     }),
   });
 
-  const [image, setImage] = useState(data?.image);
+  const [image, setImage] = useState(data?.image || PLACEHOLDER_IMAGE);
+
+  useEffect(() => {
+    if (data) {
+      setImage(data.image);
+    }
+  }, [data]);
 
   function handleError() {
     setImage(PLACEHOLDER_IMAGE);
@@ -55,8 +61,9 @@ const Page: React.FC<Props> = ({ params }) => {
   if (isLoading) {
     return <Loading />;
   }
+
   if (isSuccess && !data) {
-    return <> this image does not exist in store</>;
+    return <>This image does not exist in store</>;
   }
 
   if (isSuccess) {
