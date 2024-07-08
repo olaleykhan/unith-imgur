@@ -1,26 +1,47 @@
-import { Button, Box } from "@mui/material";
+import Header from "@/components/Header";
+import { Button, Container, Typography, Box, Grid } from "@mui/material";
 import Link from "next/link";
 
 interface Props {
   readonly children: React.ReactNode;
 }
-const layout = ({ children }: Props) => {
+
+const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <div>
+    <Container
+      maxWidth="md"
+      sx={{
+        // bgcolor: "red",
+      }}
+    >
       <Box
         sx={{
-          height: "600px",
+          height: "100vh",
         }}
       >
-        {children}
+        <Header> Image Details</Header>
+        <Box
+   
+        >
+          {children}
+        </Box>
       </Box>
-
-      <Button variant="contained" component={Link} href="/">
-        {" "}
-        Go Home
-      </Button>
-    </div>
+      <Box mt={4}>
+        <Grid container justifyContent="center">
+          <Button
+            variant="contained"
+            component={Link}
+            href="/"
+            sx={{
+              width: 200,
+            }}
+          >
+            Go Home
+          </Button>
+        </Grid>
+      </Box>
+    </Container>
   );
 };
 
-export default layout;
+export default Layout;
