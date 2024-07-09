@@ -40,18 +40,18 @@ const ImageCard: React.FC<Props> = ({ imageData }) => {
       onClick={handleClick}
       sx={{
         maxWidth: 300,
-        borderRadius: 4,
-        backdropFilter: "blur(10px)",
-        backgroundColor: "rgba(255, 255, 255, 0.2)",
-        transition: "transform 0.05s ease-in-out",
-        "&:hover": {
-          transform: "scale(1.05)",
-        },
       }}
     >
       <Card
         sx={{
           border: activeImage === index ? "2px solid red" : "none",
+          borderRadius: 4,
+          backdropFilter: "blur(10px)",
+          transition: "transform 0.08s ease-in-out",
+          "&:hover": {
+            boxShadow: 8,
+            transform: "scale(1.012)",
+          },
         }}
       >
         <CardMedia
