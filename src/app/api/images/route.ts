@@ -1,8 +1,9 @@
-export const dynamic = 'force-dynamic'; // static by default, unless reading the request
+import { BASE_URL } from "@/config";
+export const dynamic = 'force-dynamic';
 
 export async function GET(request: Request) {
     
-    const data = await fetch('http://54.73.73.228:4369/api/images', {
+    const data = await fetch(`${BASE_URL}images`, {
         method: 'GET',
     });
     return data
