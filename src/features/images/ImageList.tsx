@@ -6,6 +6,7 @@ import ImageCard from "./ImageCard";
 import Loading from "@/components/Loading";
 import Pagination from "@/components/Pagination";
 import { usePaginatedItems } from "@/hooks/usePagination";
+import ImageListLoader from "./ImageListLoader";
 
 const ImageList = () => {
   // Using a query hook automatically fetches data and returns query values
@@ -29,7 +30,7 @@ const ImageList = () => {
   }
 
   if (isLoading) {
-    return <Loading />;
+    return <ImageListLoader length={itemsPerPage} />;
   }
 
   if (isSuccess) {
@@ -37,7 +38,7 @@ const ImageList = () => {
       <Container>
         <Grid
           container
-          justifyContent="flex-start"
+          justifyContent="center"
           rowSpacing={6}
           columnSpacing={3}
         >
