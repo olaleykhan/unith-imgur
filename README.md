@@ -6,54 +6,22 @@
 
 ## Overview
 
-Unith-Imgur is a simple SPA that renders a dataset gotten from an unreliable API.
+Unith-Imgur is a simple SPA that renders a simple dataset gotten from an unreliable API.
 
 ## Project Structure
-
-```bash
-unith-imgur
-├── Dockerfile
-├── Dockerfile.dev
-├── compose.dev.yaml
-├── docker-compose.yaml
-├── package.json
-├── src
-│   ├── components
-│   │   ├── Item.svelte
-│   │   ├── ItemList.svelte
-│   │   └── index.ts
-│   ├── pages
-│   │   ├── Home.svelte
-│   │   ├── ItemDetail.svelte
-│   │   └── index.ts
-│   ├── redux
-│   │   ├── slices
-│   │   │   ├── itemsSlice.ts
-│   │   │   └── activeItemSlice.ts
-│   │   └── store.ts
-│   ├── utils
-│   │   └── api.ts
-│   └── App.svelte
-├── static
-│   ├── favicon.png
-│   └── robots.txt
-├── .eslintrc.cjs
-├── .gitignore
-├── .prettierrc
-├── README.md
-├── tailwind.config.js
-├── tsconfig.json
-└── vite.config.ts
-```
 
 ## Project Summary
 
 - `src`: Main source code directory.
-- `src/components`: Reusable UI components.
-- `src/pages`: Svelte pages for routing.
-- `src/redux`: Redux slices and store setup for state management.
-- `src/utils`: Utility functions and API helper.
+- `public`: Contains public assets accessible by HTML
+- `src/app`: Next JS folder containing routes and pages
+- `src/__test__`: General test folders (You will find other tests closer to their component folders for easier accessibility)
+- `src/components`: General component files reusable accross multiple features/Routes
+- `src/lib`: Library directories that help with powering the app but are not related to NextJS
+- `src/theme`: Material UI related theming and global resets
 - `static`: Static assets like images and icons.
+- `features`: separates components by features. components and hooks should only be imported within the dame directory or to it's parent directory in src/app. (if a component is needed accross more than one feature then, it should be in src/components)
+- `hooks`: gotta love this one. this are reuseable react logics that are able to maintain state while reuseable accross multiple components.
 
 ## Stack
 
@@ -68,9 +36,8 @@ unith-imgur
 
 ## Setting Up
 
-Insert your environment variables.
 
-## Run Locally
+### Run Locally
 
 Clone the Unith-Imgur repository:
 
@@ -84,30 +51,23 @@ install dependencies
 npm install
 ```
 
-
-
-# Unith
-
-## Getting Started
-
-First, run the development server:
+run the development server:
 
 ```bash
 npm run dev
 ```
 
-
 ### Using Docker
 
 1. [Install Docker](https://docs.docker.com/get-docker/) on your machine.
-1. run your dev container: `docker compose -f compose.dev.yaml up --build`.
+
+- To run development container: `docker compose -f compose.dev.yaml up --build`.
 
 ```bash
 docker compose -f compose.dev.yaml up --build
 ```
 
-
-1. Run your production container: `docker compose up --build`.
+- To Run your production build: `docker compose up --build`.
 
 ```bash
 docker compose up --build
