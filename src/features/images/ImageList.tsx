@@ -1,7 +1,7 @@
 "use client";
 import { useFetchAllQuery } from "@/lib/store/images/imagesApiSlice";
-import { Grid, Container, Box } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
+import { Grid, Container } from "@mui/material";
+import { useSelector } from "react-redux";
 import ImageCard from "./ImageCard";
 import Loading from "@/components/Loading";
 import Pagination from "@/components/Pagination";
@@ -11,7 +11,6 @@ const ImageList = () => {
   // Using a query hook automatically fetches data and returns query values
   const { data, isError, isLoading, isSuccess } = useFetchAllQuery(undefined);
 
-  const dispatch = useDispatch();
   const currentPage = useSelector((state: any) => state.image.currentPage);
   const itemsPerPage = useSelector((state: any) => state.image.itemsPerPage);
 
@@ -35,15 +34,10 @@ const ImageList = () => {
 
   if (isSuccess) {
     return (
-      <Container
-        disableGutters
-        sx={{
-          pb: 2,
-        }}
-      >
+      <Container>
         <Grid
           container
-          justifyContent="center"
+          justifyContent="flex-start"
           rowSpacing={6}
           columnSpacing={3}
         >
@@ -63,9 +57,15 @@ const ImageList = () => {
           ))}
         </Grid>
 
-        <Box>
+        <Grid
+          container
+          justifyContent={{
+            xs: "center",
+            lg: "flex-start",
+          }}
+        >
           <Pagination totalItems={data.length} />
-        </Box>
+        </Grid>
       </Container>
     );
   }

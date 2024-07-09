@@ -1,19 +1,13 @@
-import Image from "next/image";
 import ImageList from "@/features/images/ImageList";
 import Header from "@/components/Header";
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 
 export default function Page() {
   return (
-    <main>
-      <Box
-        sx={{
-          pb: 2,
-        }}
-      >
-        <Header>Simple Data Set</Header>
-      </Box>
+    <Box component="main" height="100vh">
+      <Header height={100}>Simple Data Set</Header>
+
       <ImageList />
-    </main>
+    </Box>
   );
 }

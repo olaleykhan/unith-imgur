@@ -8,40 +8,43 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <Container maxWidth="md">
-      <Box
-        sx={{
-          height: "100vh",
+    <Container maxWidth="md" disableGutters>
+      <Grid
+        container
+        direction="column"
+        wrap="nowrap"
+        minHeight={{
+          xs: "80vh",
+          md: "100vh",
         }}
+        maxHeight="100vh"
       >
-        <Header height={50}> Image Details</Header>
-        <Box
-          sx={{
-            height: "calc(100vh - 200px)",
-          }}
-        >
+        <Grid item>
+          <Header height={100}> Image Details</Header>
+        </Grid>
+
+        <Grid xs item>
           {children}
-        </Box>
-        <Box
-          mt={4}
-          sx={{
-            height: 50,
-          }}
+        </Grid>
+        <Grid
+          item
+          container
+          justifyContent="center"
+          alignItems="center"
+          height={100}
         >
-          <Grid container justifyContent="center">
-            <Button
-              variant="contained"
-              component={Link}
-              href="/"
-              sx={{
-                width: 200,
-              }}
-            >
-              Go Home
-            </Button>
-          </Grid>
-        </Box>
-      </Box>
+          <Button
+            variant="contained"
+            component={Link}
+            href="/"
+            sx={{
+              width: 200,
+            }}
+          >
+            Go Home
+          </Button>
+        </Grid>
+      </Grid>
     </Container>
   );
 };

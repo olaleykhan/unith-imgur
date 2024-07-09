@@ -1,5 +1,5 @@
 import { ReactNode, FC } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Grid } from "@mui/material";
 
 type Props = {
   children: ReactNode;
@@ -7,10 +7,12 @@ type Props = {
 };
 const Header: FC<Props> = ({ children, height }) => {
   return (
-    <Box p={2} height={height} component="header">
-      <Typography variant="h4" textAlign="center">
-        {children}
-      </Typography>
+    <Box py={2} height={height} component="header">
+      <Grid height="100%" container alignItems="center" justifyContent="center">
+        <Typography variant="h4" textAlign="center">
+          {children}
+        </Typography>
+      </Grid>
     </Box>
   );
 };
