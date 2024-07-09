@@ -8,7 +8,7 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <Container maxWidth="md" disableGutters>
+    <Container maxWidth="md">
       <Grid
         container
         direction="column"
