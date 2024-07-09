@@ -4,8 +4,6 @@ import { transformAndSortImage } from './utils';
 import { PLACEHOLDER_IMG } from "@/config";
 
 
-
-
 type ImagesApiResponse = Record<string, ImageResponse>;
 
 // Define a service using a base URL and expected endpoints

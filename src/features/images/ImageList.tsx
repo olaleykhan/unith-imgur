@@ -3,7 +3,6 @@ import { useFetchAllQuery } from "@/lib/store/images/imagesApiSlice";
 import { Grid, Container } from "@mui/material";
 import { useSelector } from "react-redux";
 import ImageCard from "./ImageCard";
-import Loading from "@/components/Loading";
 import Pagination from "@/components/Pagination";
 import { usePaginatedItems } from "@/hooks/usePagination";
 import ImageListLoader from "./ImageListLoader";

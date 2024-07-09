@@ -1,16 +1,33 @@
 "use client";
-import { Button, Typography } from "@mui/material";
 import Link from "next/link";
+import { Container, Box, Typography, Button, Grid } from "@mui/material";
+import { useRouter } from "next/router";
 
-export default function Error() {
+const Error = () => {
+  const router = useRouter();
+  const currentUrl = router.asPath;
+
   return (
-    <div>
-      <Typography variant="h1">Something went wrong!</Typography>
-
-      <br />
-      <Button variant="contained" component={Link} href="/">
-        Go Home
-      </Button>
-    </div>
+    <Container>
+      <Grid
+        container
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        height="80vh"
+      >
+        <Typography variant="h4" component="h1" gutterBottom>
+          Page Not Found
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          The URL <code>{currentUrl}</code> does not exist.
+        </Typography>
+        <Button variant="contained" color="primary" component={Link} href="/">
+          Home
+        </Button>
+      </Grid>
+    </Container>
   );
-}
+};
+
+export default Error;
