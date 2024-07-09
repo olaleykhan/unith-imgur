@@ -2,7 +2,7 @@
 
 ##
 
-### live site: [https://unith-imgur.vercel.app/](https://unith-imgur.vercel.app/)
+### live site: [https://unith.lekan.dev/](https://unith.lekan.dev/)
 
 ## Overview
 
@@ -42,7 +42,7 @@ Unith-Imgur is a simple SPA that renders a simple dataset gotten from an unrelia
 Clone the Unith-Imgur repository:
 
 ```bash
-git clone https://github.com/your-username/unith-imgur.git
+git clone https://github.com/olaleykhan/unith-imgur
 cd unith-imgur
 ```
 install dependencies
