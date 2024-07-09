@@ -7,6 +7,7 @@ const GlobalStyle: React.FC = () => {
       styles={css`
         html {
           font-size: 10px;
+          font-family: "Inter", sans-serif;
           @media only screen and (min-width: 600px) {
             font-size: 12px;
           }

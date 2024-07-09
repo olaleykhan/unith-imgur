@@ -5,7 +5,7 @@ import PaletteOptions from './palette';
 export const theme: Theme = createTheme({
   palette: PaletteOptions,
   typography: {
-    fontFamily: 'SF-Pro-Display',
+    fontFamily: 'Inter',
     body2: {
       fontSize: '0.6rem',
   
